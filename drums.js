@@ -1,24 +1,26 @@
 document.addEventListener('DOMContentLoaded', ()=>{
 
-  document.addEventListener('keydown', (event) => {
-    const keyCode = event.keyCode;
-    const sound = document.querySelector(`audio[data-key="${keyCode}"]`);
-    const pressedKey = document.querySelector(`div[data-key="${keyCode}"]`);
+  const playSound = (event) => {
+    const pressedKey = document.querySelector(`div[data-key="${event.keyCode}"]`);
+    const sound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
 
     if(!sound){return;}
 
     sound.currentTime = 0;
     sound.play().then(
-      () =>{
-        console.log('tout va bien');
-      },
-      (error) =>{
-        console.log('tout va mal', error);
-      }
+      () =>{ console.log('Sound played'); },
+      (error) =>{ console.log('Couldn\'t play sound', error); }
     );
 
     pressedKey.classList.add('playing');
-    pressedKey.addEventListener('transitionend', ()=>{ pressedKey.classList.remove('playing'); });
-  });
+  }
+
+  const endTransition = (event) => {
+    if (event.propertyName !== 'transform') return;
+    event.target.classList.remove('playing');
+  }
+
+  document.addEventListener('keydown', playSound);
+  document.addEventListener('transitionend', endTransition);
 
 });
