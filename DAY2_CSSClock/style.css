@@ -1,0 +1,84 @@
+/* RESET */
+body, div {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* COLOR THEME */
+:root {
+  --transparent: transparent;
+  --clock-color: #fff;
+  --hands-color: #000;
+  --pin-size: 10px;
+  --hands-thickness: 2px;
+  --default-hand-length: 70px;
+  --hour-length: 45px;
+}
+
+/* --- BACKGROUND --- */
+html {
+  background: #018DED url(http://unsplash.it/1500/1000?image=881&blur=50) top center;
+  background-size: cover;
+}
+
+/* --- CLOCK POSITIONING --- */
+.clock {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-face {
+  width: 200px;
+  height: 200px;
+  background: var(--transparent);
+  border: 10px solid var(--clock-color);
+  border-radius: 50%;
+  padding: 20px;
+}
+
+/* --- CLOCK HANDS STYLING --- */
+.hand {
+  width: var(--default-hand-length);
+  border: var(--hands-thickness) solid var(--hands-color);
+  border-radius: var(--hands-thickness);
+  position: absolute;
+  top: calc(50% - var(--hands-thickness));
+  transform: rotate(90deg);
+  transform-origin: right;
+  transition: .05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+/* HOURS */
+.hour-hand {
+  width: var(--hour-length);
+  left: calc(50% - var(--hour-length));
+}
+
+/* MINUTES */
+.min-hand {
+  border-color: green;
+}
+
+/* SECONDS */
+.second-hand {
+  border-color: blue;
+}
+
+/* CENTER PIN */
+.pin {
+  width: var(--pin-size);
+  height: var(--pin-size);
+  border: 5px solid var(--hands-color);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  z-index: 1;
+}
+
