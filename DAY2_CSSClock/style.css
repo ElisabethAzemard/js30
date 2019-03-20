@@ -8,11 +8,12 @@ body, div {
 
 /* COLOR THEME */
 :root {
-  --transparent: transparent;
   --clock-color: #fff;
-  --hands-color: #000;
+  --black: rgb(20, 20, 20);
+  --blue: #018DED;
   --pin-size: 10px;
-  --hands-thickness: 2px;
+  --default-hand-thickness: 2px;
+  --seconds-thickness: 1px;
   --default-hand-length: 70px;
   --hour-length: 45px;
 }
@@ -23,7 +24,7 @@ html {
   background-size: cover;
 }
 
-/* --- CLOCK POSITIONING --- */
+/* --- CLOCK --- */
 .clock {
   display: flex;
   flex: 1;
@@ -32,53 +33,59 @@ html {
   justify-content: center;
 }
 
+/* CLOCK FACE STYLING */
 .clock-face {
   width: 200px;
   height: 200px;
-  background: var(--transparent);
-  border: 10px solid var(--clock-color);
+  border: 2px solid var(--clock-color);
   border-radius: 50%;
-  padding: 20px;
+  padding: 28px;
+  box-shadow: 0 0 10px 0px #010049;
+  background: #fff url('clock.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* --- CLOCK HANDS STYLING --- */
 .hand {
-  width: var(--default-hand-length);
-  border: var(--hands-thickness) solid var(--hands-color);
-  border-radius: var(--hands-thickness);
+  height: var(--default-hand-length);
+  border: var(--default-hand-thickness) solid var(--black);
+  background-color: var(--black);
+  border-radius: var(--default-hand-thickness);
   position: absolute;
-  top: calc(50% - var(--hands-thickness));
-  transform: rotate(90deg);
-  transform-origin: right;
-  transition: .05s;
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  left: calc(50% - var(--default-hand-thickness));
+  transform-origin: 50% 100%;
 }
 
 /* HOURS */
 .hour-hand {
-  width: var(--hour-length);
-  left: calc(50% - var(--hour-length));
-}
-
-/* MINUTES */
-.min-hand {
-  border-color: green;
+  height: var(--hour-length);
+  top: calc(50% - var(--hour-length));
 }
 
 /* SECONDS */
 .second-hand {
-  border-color: blue;
+  border-width: var(--seconds-thickness);
+  border-color: var(--blue);
+  background-color: var(--blue);
+  left: calc(50% - var(--seconds-thickness));
+  transition: transform 0.3s cubic-bezier(.4,2.08,.55,.44);
+}
+
+/* MINUTES */
+.min-hand {
+  transition: transform 0.3s cubic-bezier(.4,2.08,.55,.44);
 }
 
 /* CENTER PIN */
 .pin {
   width: var(--pin-size);
   height: var(--pin-size);
-  border: 5px solid var(--hands-color);
+  border: 2px solid var(--blue);
+  background-color: var(--clock-color);
   border-radius: 50%;
   position: absolute;
-  top: calc(50% - 5px);
-  left: calc(50% - 5px);
+  top: calc(50% - var(--pin-size) / 2);
+  left: calc(50% - var(--pin-size) / 2);
   z-index: 1;
 }
-
