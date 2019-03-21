@@ -14,8 +14,8 @@ body, div {
   --pin-size: 10px;
   --default-hand-thickness: 2px;
   --seconds-thickness: 1px;
-  --default-hand-length: 70px;
-  --hour-length: 45px;
+  --default-hand-length: 105px;
+  --hour-length: 67.5px;
 }
 
 /* --- BACKGROUND --- */
@@ -35,8 +35,8 @@ html {
 
 /* CLOCK FACE STYLING */
 .clock-face {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border: 2px solid var(--clock-color);
   border-radius: 50%;
   padding: 28px;
@@ -54,6 +54,7 @@ html {
   border-radius: var(--default-hand-thickness);
   position: absolute;
   left: calc(50% - var(--default-hand-thickness));
+  top: calc(50% - var(--default-hand-length));
   transform-origin: 50% 100%;
 }
 
