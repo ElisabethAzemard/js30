@@ -1,0 +1,125 @@
+
+/* RESET */
+body, h1, section, label, input, img {
+  font-size: 16px;
+  font-family: Avenir, Roboto, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+
+/* VARIABLES TO BE UPDATED */
+:root {
+  --color: #cca3b5;
+  --spacing: 0px;
+  --blur: 0px;
+}
+
+/* --- GENERAL --- */
+html {
+  background-color: #193549;
+}
+
+body {
+  width: 70%;
+  margin: auto;
+}
+
+/* HEADER */
+header, section.controls {
+  padding: 20px 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+span.highlight {
+  color: var(--color);
+}
+
+/* IMAGE */
+img {
+  margin: 40px 0;
+  padding: var(--spacing);
+  background: var(--color);
+  filter: blur(var(--blur));
+  max-width: 500px;
+  max-height: 334px;
+}
+
+/* --- PLAYING AROUND WITH THE INPUTS STYLING IN CHROME --- */
+label {
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+input {
+  margin-right: 30px;
+}
+
+input:last-of-type {
+  margin-right: 0;
+}
+
+/* RANGE INPUT */
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  background: transparent; /* Otherwise white in Chrome */
+  padding-bottom: 5px; /* push up the inputs to align with the text*/
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  /* -webkit-appearance: none; */
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  margin-top: -5px; /* align the thumb with the track */
+  box-shadow: 1px 1px 1px #0d0d0d, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: var(--color); /* range track color */
+  border-radius: 5px; /* range track rounded */
+}
+
+/* COLOR INPUT */
+input[type=color] {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 5px;
+}
+
+input[type=color]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
