@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleOpen() {
     this.classList.toggle('open');
-    // listen to transitionend only if the panel was clicked to prevent active being toggled on on page load
-    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   }
 
   function toggleActive(e) {
@@ -15,5 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+  panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
 
 });
