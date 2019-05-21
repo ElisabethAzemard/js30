@@ -1,0 +1,77 @@
+/* --- RESET --- */
+body, form, input, ul, li {
+  margin: 0;
+  padding: 0;
+  font-family: 'helvetica neue';
+  font-size: 18px;
+  font-weight: 200;
+  list-style-type: none;
+  word-break: break-word;
+  outline: none;
+}
+
+html {
+  background: #ffc600;
+}
+
+/* --- GLOBAL --- */
+form {
+  max-width: 800px;
+  margin: 55px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+}
+
+/* --- SEARCH INPUT --- */
+.search {
+  width: 50%;
+  padding: 20px 0;
+  border: 10px solid #fafafa;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .15), inset 0 0 2px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  z-index: 1;
+}
+
+/* --- RESULTS --- */
+.suggestions {
+  width: 45%;
+  transform: translateY(-2px);
+}
+
+/* list of cities */
+.suggestions li {
+  background-image: linear-gradient(#fff 20%, #efefef);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  text-transform: capitalize;
+  border-bottom: 1px solid #e4e4e4;
+  justify-content: space-between;
+}
+
+/* odd items */
+.suggestions li:nth-child(odd) {
+  transform: perspective(100px) rotateX(-3deg) translateY(-2px);
+}
+
+/* even items */
+.suggestions li:nth-child(even) {
+  transform: perspective(100px) rotateX(3deg) translateY(-3px);
+}
+
+/* --- HIGHLIGHT MATCHING LETTERS ---*/
+.hl {
+  background: #ffc600;
+}
+
+/* --- CITY POPULATION --- */
+.population {
+  font-size: 15px;
+  width: 20%;
+}
